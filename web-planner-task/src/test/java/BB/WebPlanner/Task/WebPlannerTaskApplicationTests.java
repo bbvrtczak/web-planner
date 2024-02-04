@@ -1,10 +1,10 @@
-package BB.WebPlanner.Member;
+package BB.WebPlanner.Task;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GuildsAndMembersMemberApplicationTests {
+class WebPlannerTaskApplicationTests {
 
 	@Test
 	void contextLoads() {
