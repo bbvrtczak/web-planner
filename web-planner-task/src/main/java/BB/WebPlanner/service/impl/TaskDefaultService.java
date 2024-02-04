@@ -28,4 +28,9 @@ public class TaskDefaultService implements TaskService {
     public List<Task> findAll() {
         return taskRepository.findAll();
     }
+
+    @Override
+    public void create(Task task){
+        taskRepository.save(task);
+    }
 }

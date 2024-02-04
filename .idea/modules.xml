@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/web-planner-task/src/main/main.iml" filepath="$PROJECT_DIR$/web-planner-task/src/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/web-planner-task/src/test/test.iml" filepath="$PROJECT_DIR$/web-planner-task/src/test/test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/web-planner.iml" filepath="$PROJECT_DIR$/.idea/web-planner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-planner-task.iml" filepath="$PROJECT_DIR$/web-planner-task.iml" />
     </modules>
   </component>
 </project>

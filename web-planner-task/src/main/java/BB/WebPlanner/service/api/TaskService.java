@@ -11,5 +11,6 @@ import java.util.Optional;
 public interface TaskService {
     Optional<Task> find(long id);
     List<Task> findAll();
+    void create(Task task);
 }
 

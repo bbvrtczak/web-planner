@@ -1,10 +1,11 @@
 package BB.WebPlanner.controller.api;
 
 import BB.WebPlanner.dto.GetTasksResponse;
+import BB.WebPlanner.dto.PutTaskRequest;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 public interface TaskController {
     /**
@@ -15,4 +16,15 @@ public interface TaskController {
     @ResponseBody
     GetTasksResponse getTasks();
 
+    /**
+     * Create task
+     */
+    @PutMapping("/api/tasks/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    void putTask(
+            @PathVariable("id")
+            long id,
+            @RequestBody
+            PutTaskRequest request
+    );
 }
