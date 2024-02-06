@@ -10,6 +10,7 @@ import lombok.Setter;
 import lombok.Singular;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -41,6 +42,16 @@ public class GetTasksResponse {
          * Name of the task.
          */
         private String name;
+
+        /**
+         * Task start date.
+         */
+        private LocalDateTime startDate;
+
+        /**
+         * Task end date.
+         */
+        private LocalDateTime endDate;
 
     }
 

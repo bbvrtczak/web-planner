@@ -20,6 +20,8 @@ public class TasksToResponseFunction implements Function<List<Task>, GetTasksRes
                         .map(task -> GetTasksResponse.Task.builder()
                                 .id(task.getId())
                                 .name(task.getName())
+                                .startDate(task.getStartDate())
+                                .endDate(task.getEndDate())
                                 .build())
                         .toList())
                 .build();

@@ -4,13 +4,12 @@ GET http://localhost:8081/api/tasks
 
 ### Create new task
 
-PUT http://localhost:8081/api/tasks/1
+PUT http://localhost:8081/api/tasks/2
 Content-Type: application/json
-#Authorization: Basic a2V2aW46dXNlcnVzZXI=
 
 {
-  "name": "Created test task 1",
-  "description": "Description 1.",
-  "startDate": "2024-02-01 08:00",
-  "endDate": "2024-02-01 12:00"
+  "name": "Test task 2",
+  "description": "Description 2",
+  "startDate": "2024-02-02 08:00",
+  "endDate": "2024-02-02 12:00"
 }
