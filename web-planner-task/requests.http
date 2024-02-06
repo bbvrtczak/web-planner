@@ -1,0 +1,15 @@
+### Get all tasks
+
+GET http://localhost:8081/api/tasks
+
+### Create new task
+
+PUT http://localhost:8081/api/tasks/2
+Content-Type: application/json
+
+{
+  "name": "Test task 2",
+  "description": "Description 2",
+  "startDate": "2024-02-02 08:00",
+  "endDate": "2024-02-02 12:00"
+}
