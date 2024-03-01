@@ -44,4 +44,9 @@ public class TaskDefaultController implements TaskController {
     public void putTask(long id, PutTaskRequest request) {
         service.create(requestToTask.apply(id, request));
     }
+
+    @Override
+    public void deleteTask(long id) {
+        service.delete(id);
+    }
 }

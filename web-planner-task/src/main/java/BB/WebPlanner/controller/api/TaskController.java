@@ -25,4 +25,12 @@ public interface TaskController {
             @RequestBody
             PutTaskRequest request
     );
+
+    @DeleteMapping("/api/tasks/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    void deleteTask(
+            @PathVariable("id")
+            long id
+    );
 }

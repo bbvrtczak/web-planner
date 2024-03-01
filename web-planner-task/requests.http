@@ -13,3 +13,8 @@ Content-Type: application/json
   "startDate": "2024-02-02 08:00",
   "endDate": "2024-02-02 12:00"
 }
+
+
+### Delete task
+
+DELETE http://localhost:8081/api/tasks/2

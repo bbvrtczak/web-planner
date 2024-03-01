@@ -33,4 +33,9 @@ public class TaskDefaultService implements TaskService {
     public void create(Task task){
         taskRepository.save(task);
     }
+
+    @Override
+    public void delete(long id){
+        taskRepository.deleteById(id);
+    }
 }
