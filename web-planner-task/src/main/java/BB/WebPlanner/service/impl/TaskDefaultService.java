@@ -4,7 +4,6 @@ import BB.WebPlanner.entity.Task;
 import BB.WebPlanner.repository.TaskRepository;
 import BB.WebPlanner.service.api.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
