@@ -1,76 +1,59 @@
-import { useState, useEffect } from 'react';
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from 'react';
 
 interface Task {
+  id: number;
   name: string;
-  // Add other properties as needed
+  startDate: number[];
+  endDate: number[];
 }
 
-function App() {
-  //const [count, setCount] = useState(0)
-  const [task, setTask] = useState<Task[]>([]);
+const App: React.FC = () => {
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:8081/api/tasks')
-    .then(response => response.json())
-    .then(data => {
-      setTask(data);
-      console.log(data);
-    })
-    .catch(err => console.log(err))
+    fetchTasks();
   }, []);
 
+  const fetchTasks = async () => {
+    try {
+      const response = await fetch('http://localhost:8081/api/tasks');
+      if (!response.ok) {
+        throw new Error('Failed to fetch tasks');
+      }
+      const responseData = await response.json();
+      console.log('Fetched tasks data:', responseData);
+
+      if (Array.isArray(responseData.tasks)) {
+        setTasks(responseData.tasks);
+      } else {
+        console.error('Tasks data is not an array:', responseData.tasks);
+      }
+    } catch (error) {
+      console.error('Error fetching tasks:', error);
+    }
+  };
+
   return (
-    <>
-      <div>
-        {task.map((task) =>{
-          return <p>{task.name}</p>
-        })}
-      </div>
-    </>
-  )
-}
+    <div>
+      <h1>Task List</h1>
+      <ul>
+        {tasks.map(task => (
+          <li key={task.id}>
+            <h3>{task.name}</h3>
+            <p>Start Date: {formatDate(task.startDate)}</p>
+            <p>End Date: {formatDate(task.endDate)}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-export default App
+// Function to format the date array into a string
+const formatDate = (dateArray: number[]): string => {
+  const [year, month, day, hour, minute] = dateArray;
+  const formattedDate = new Date(year, month - 1, day, hour, minute).toLocaleString();
+  return formattedDate;
+};
 
-
-
-  // useEffect(() => {
-  //   fetch('http://localhost:8081/api/tasks')
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //         setPosts(data);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err.message);
-  //       });
-  // }, []);
-
-
-  // return (
-  //   <>
-  //     <div>
-  //       <a href="https://vitejs.dev" target="_blank">
-  //         <img src={viteLogo} className="logo" alt="Vite logo" />
-  //       </a>
-  //       <a href="https://react.dev" target="_blank">
-  //         <img src={reactLogo} className="logo react" alt="React logo" />
-  //       </a>
-  //     </div>
-  //     <h1>Vite + React</h1>
-  //     <div className="card">
-  //       <button onClick={() => setCount((count) => count + 1)}>
-  //         count is {count}
-  //       </button>
-  //       <p>
-  //         Edit <code>src/App.tsx</code> and save to test HMR
-  //       </p>
-  //     </div>
-  //     <p className="read-the-docs">
-  //       Click on the Vite and React logos to learn more
-  //     </p>
-  //   </>
-  // )
+export default App;
